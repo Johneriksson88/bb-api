@@ -48,7 +48,7 @@ class MoodDetail(APIView):
 
     def get(self, request, pk):
         post = self.get_object(pk)
-        serializer = PostSerializer(
+        serializer = MoodSerializer(
             post, context={'request': request}
         )
         return Response(serializer.data)
