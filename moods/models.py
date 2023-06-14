@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from posts.models import Post
 
 
 class Mood(models.Model):
@@ -8,7 +7,6 @@ class Mood(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     name = models.CharField(max_length=255)
-    posts = models.ManyToManyField(Post)
     emoji = models.CharField(max_length=10)
     class Meta:
         ordering = ['name']

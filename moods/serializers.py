@@ -5,7 +5,7 @@ from moods.models import Mood
 class MoodSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
     mood_id = serializers.ReadOnlyField(source='mood.id')
-    name = serializers.ReadOnlyField(source='owner.mood.name')
+    """ name = serializers.ReadOnlyField(source='owner.mood.name') """
     posts = serializers.ReadOnlyField(source='owner.mood.posts')
 
     def get_is_owner(self, obj):

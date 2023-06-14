@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from moods.models import Mood
 
 
 class Post(models.Model):
@@ -14,6 +15,7 @@ class Post(models.Model):
     artist = models.CharField(max_length=255)
     song = models.CharField(max_length=255)
     content = models.TextField(blank=True)
+    moods = models.ManyToManyField(Mood, related_name="posts")
     image = models.ImageField(
         upload_to='images/', default='../default_post_vzfmrq', blank=True
     )
