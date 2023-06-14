@@ -3,15 +3,18 @@ from django.contrib.auth.models import User
 from posts.models import Post
 
 
-class Mood(models.Model):
+class Comment(models.Model):
+    """
+    Comment model, related to User and Post
+    """
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    name = models.CharField(max_length=255)
-    posts = models.ManyToManyField(Post)
-    emoji = models.CharField(max_length=10)
+    content = models.TextField()
+
     class Meta:
-        ordering = ['name']
+        ordering = ['-created_at']
 
     def __str__(self):
-        return f'{self.id} {self.name}'
+        return self.content
