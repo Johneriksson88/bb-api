@@ -7,8 +7,6 @@ class MoodSerializer(serializers.ModelSerializer):
     mood_id = serializers.ReadOnlyField(source='mood.id')
     posts = serializers.ReadOnlyField(source='posts.models.post.moods')
 
-    print(f"posts {posts}")
-
     def get_is_owner(self, obj):
         request = self.context['request']
         return request.user == obj.owner
