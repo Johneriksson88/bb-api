@@ -7,7 +7,7 @@ class Mood(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     name = models.CharField(max_length=255)
-    emoji = models.CharField(max_length=10)
+    emoji = models.CharField(max_length=10, blank=True)
     class Meta:
         ordering = ['name']
 
