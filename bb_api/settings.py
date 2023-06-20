@@ -60,7 +60,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-johneriksson88-bbapi-btpqxq1jf8k.ws-eu100.gitpod.io', 'beatbuddies-api-a72df4dfc93e.herokuapp.com/']
+ALLOWED_HOSTS = ['8000-johneriksson88-bbapi-btpqxq1jf8k.ws-eu100.gitpod.io', 'beatbuddies-api-a72df4dfc93e.herokuapp.com']
 
 
 # Application definition
