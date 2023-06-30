@@ -118,6 +118,8 @@ else:
         r"^https://.*\.gitpod\.io$",
     ]
 
+CORS_ALLOWED_ORIGIN = 'https://beatbuddies-api-a72df4dfc93e.herokuapp.com/'
+
 CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'bb_api.urls'
