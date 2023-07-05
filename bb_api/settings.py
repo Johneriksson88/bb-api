@@ -62,7 +62,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '8000-johneriksson88-bbapi-btpqxq1jf8k.ws-eu100.gitpod.io',
+    '8000-johneriksson88-bbapi-ub0r4vqhrin.ws-eu101.gitpod.io',
     os.environ.get('ALLOWED_HOST')
 ]
 
