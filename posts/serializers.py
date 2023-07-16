@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from posts.models import Post
 from likes.models import Like
-
+from moods.models import Mood
 
 class PostSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
@@ -11,6 +11,8 @@ class PostSerializer(serializers.ModelSerializer):
     like_id = serializers.SerializerMethodField()
     likes_count = serializers.ReadOnlyField()
     comments_count = serializers.ReadOnlyField()
+    moods = serializers.PrimaryKeyRelatedField(queryset=Mood.objects.all(), many=True)
+
 
     def validate_image(self, value):
         if value.size > 2 * 1024 * 1024:

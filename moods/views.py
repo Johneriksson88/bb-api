@@ -71,3 +71,16 @@ class MoodDetail(APIView):
         return Response(
             status=status.HTTP_204_NO_CONTENT
         )
+
+class MoodPostsView(APIView):
+    serializer_class = MoodSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+    def get(self, request, pk):
+        mood = Mood.objects.all()
+        posts = mood.posts.id
+        print("moods: ", mood)
+        serializer = MoodSerializer(
+            posts, many=True, context={'request': request}
+        )
+        return Response(serializer.data)
