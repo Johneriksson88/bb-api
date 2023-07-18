@@ -11,7 +11,7 @@ class PostSerializer(serializers.ModelSerializer):
     like_id = serializers.SerializerMethodField()
     likes_count = serializers.ReadOnlyField()
     comments_count = serializers.ReadOnlyField()
-    moods = serializers.PrimaryKeyRelatedField(queryset=Mood.objects.all(), many=True)
+    moods = serializers.PrimaryKeyRelatedField(queryset=Mood.objects.all(), many=True, required=True)
     link = serializers.URLField()
 
 
