@@ -32,6 +32,9 @@ class MoodList(APIView):
         return Response(
             serializer.errors, status=status.HTTP_400_BAD_REQUEST
         )
+        
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
 
 
 class MoodDetail(APIView):
@@ -79,7 +82,6 @@ class MoodPostsView(APIView):
     def get(self, request, pk):
         mood = Mood.objects.all()
         posts = mood.posts.id
-        print("moods: ", mood)
         serializer = MoodSerializer(
             posts, many=True, context={'request': request}
         )
