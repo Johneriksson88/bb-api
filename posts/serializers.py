@@ -12,6 +12,7 @@ class PostSerializer(serializers.ModelSerializer):
     likes_count = serializers.ReadOnlyField()
     comments_count = serializers.ReadOnlyField()
     moods = serializers.PrimaryKeyRelatedField(queryset=Mood.objects.all(), many=True)
+    link = serializers.URLField()
 
 
     def validate_image(self, value):
