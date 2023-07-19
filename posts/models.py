@@ -16,7 +16,7 @@ class Post(models.Model):
     song = models.CharField(max_length=255)
     link = models.CharField(max_length=255, default="")
     content = models.TextField(blank=True)
-    moods = models.ManyToManyField(Mood, related_name="posts")
+    moods = models.ManyToManyField(Mood, related_name="posts", blank=False)
     image = models.ImageField(
         upload_to='images/', default='../default_post_vzfmrq', blank=True
     )
