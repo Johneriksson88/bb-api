@@ -82,9 +82,9 @@ The followers model holds all the links between the users following each other. 
 
 ### Manual Testing
 
-Throughout the project, and when a new model was done I contiunosly tested the full CRUD functionality to all endpoints.
-
 ### Endpoint Testing
+
+I manually tested that all the links go to the correct endpoints:
 
 | URL                | Passed             |
 | ------------------ | ------------------ |
@@ -106,6 +106,68 @@ Throughout the project, and when a new model was done I contiunosly tested the f
 | /moods/            | :white_check_mark: |
 | /mood/\<id>/       | :white_check_mark: |
 | /createmood/\<id>/ | :white_check_mark: |
+
+### CRUD Functionality Testing
+
+I manually tested the CRUD (Create, Read, Update, Delete) functionality of all endpoints, and that the actions were correctly limited to authenticated users where defined.
+
+#### Comments
+
+| App      | Action      | Authenticated | Unauthenticated | Passed             |
+| -------- | ----------- | ------------- | --------------- | ------------------ |
+| Comments | Create      | 201 Response  | 403 Response    | :white_check_mark: |
+| Comments | Read (List) | 200 Response  | 200 Response    | :white_check_mark: |
+| Comments | Update      | 200 Response  | 403 Response    | :white_check_mark: |
+| Comments | Delete      | 200 Response  | 403 Response    | :white_check_mark: |
+
+#### Contact
+
+| App      | Action | Authenticated | Unauthenticated | Passed             |
+| -------- | ------ | ------------- | --------------- | ------------------ |
+| Contacts | Create | 201 Response  | N/A             | :white_check_mark: |
+
+#### Followers
+
+| App       | Action      | Authenticated | Unauthenticated | Passed             |
+| --------- | ----------- | ------------- | --------------- | ------------------ |
+| Followers | Create      | 201 Response  | N/A             | :white_check_mark: |
+| Followers | Read (List) | 200 Response  | 200 Response    | :white_check_mark: |
+| Followers | Update      | 200 Response  | 403 Response    | :white_check_mark: |
+| Followers | Delete      | 200 Response  | 403 Response    | :white_check_mark: |
+
+#### Likes
+
+| App   | Action      | Authenticated | Unauthenticated | Passed             |
+| ----- | ----------- | ------------- | --------------- | ------------------ |
+| Likes | Create      | 201 Response  | 403 Response    | :white_check_mark: |
+| Likes | Read (List) | 200 Response  | 200 Response    | :white_check_mark: |
+| Likes | Update      | 200 Response  | 403 Response    | :white_check_mark: |
+| Likes | Delete      | 200 Response  | 403cResponse    | :white_check_mark: |
+
+#### Moods
+
+| App   | Action      | Authenticated | Unauthenticated | Passed             |
+| ----- | ----------- | ------------- | --------------- | ------------------ |
+| Moods | Create      | 201 Response  | 403 Response    | :white_check_mark: |
+| Moods | Read (List) | 200 Response  | 200 Response    | :white_check_mark: |
+
+#### Posts
+
+| App   | Action      | Authenticated | Unauthenticated | Passed             |
+| ----- | ----------- | ------------- | --------------- | ------------------ |
+| Posts | Create      | 201 Response  | 403 Response    | :white_check_mark: |
+| Posts | Read (List) | 200 Response  | 403 Response    | :white_check_mark: |
+| Posts | Update      | 200 Response  | 403 Response    | :white_check_mark: |
+| Posts | Delete      | 200 Response  | 403 Response    | :white_check_mark: |
+
+#### Profiles
+
+| App      | Action      | Authenticated | Unauthenticated | Passed             |
+| -------- | ----------- | ------------- | --------------- | ------------------ |
+| Profiles | Create      | 201 Response  | 201 Response    | :white_check_mark: |
+| Profiles | Read (List) | 200 Response  | 200 Response    | :white_check_mark: |
+| Profiles | Update      | 200 Response  | 403 Response    | N/A                |
+| Profiles | Delete      | N/A           | N/A             | N/A                |
 
 ## Technologies Used
 
@@ -257,12 +319,11 @@ Throughout the project, and when a new model was done I contiunosly tested the f
 - [Python Documentation](https://docs.python.org/3/)
 - [Stack Overflow](https://stackoverflow.com/)
 
+### Bugs
+
+All bugs are documented in the [readme](https://github.com/Johneriksson88/BeatBuddies/blob/main/README.md) of the front end repository.
+
 ### Code
 
-- Code Institute DRF Tutorial Project, used through as a basis for the creation of this API
-  - CREDIT: Code Institute DRF-API Tutuorial Project
-  - URL: [https://github.com/Code-Institute-Solutions/drf-api](https://github.com/Code-Institute-Solutions/drf-api)
-
-### Acknowledgments
-
-A huge thank you to my partner for his patience and support throughout this project.
+- The API was based on the DRF-API tutorial on Code Institute
+  - [Code Institute DRF-API Tutuorial Project](https://github.com/Code-Institute-Solutions/drf-api)

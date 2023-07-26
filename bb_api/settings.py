@@ -62,7 +62,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '8000-johneriksson88-bbapi-ub0r4vqhrin.ws-eu101.gitpod.io',
+    '8000-johneriksson88-bbapi-xsopvm3idcx.ws-eu102.gitpod.io',
     os.environ.get('ALLOWED_HOST')
 ]
 
@@ -95,6 +95,7 @@ INSTALLED_APPS = [
     'comments',
     'likes',
     'followers',
+    'contact',
 ]
 SITE_ID = 1
 MIDDLEWARE = [
@@ -107,28 +108,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
-""" if 'CLIENT_ORIGIN_DEV' in os.environ:
-    extracted_url = re.match(
-        r'^.+-', os.environ.get('CLIENT_ORIGIN_DEV', ''), re.IGNORECASE).group(0)
-    CORS_ALLOWED_ORIGIN_REGEXES = [
-        rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
-    ]
-else:
-    CORS_ALLOWED_ORIGIN_REGEXES = [
-        r"^https://.*\.gitpod\.io$",
-    ]
- """
-""" CORS_ALLOWED_ORIGIN = 'https://beatbuddies.herokuapp.com/*' """
-""" if 'CLIENT_ORIGIN' in os.environ:
-    CORS_ALLOWED_ORIGINS = [
-        os.environ.get('CLIENT_ORIGIN'),
-        os.environ.get('CLIENT_ORIGIN_DEV')
-   ]
-else:
-    CORS_ALLOWED_ORIGIN_REGEXES = [
-        r"^https://.*\.gitpod\.io$",
-    ] """
 
 if 'CLIENT_ORIGIN' in os.environ:
     CORS_ALLOWED_ORIGINS = [
