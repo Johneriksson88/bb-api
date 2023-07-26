@@ -8,7 +8,7 @@ from rest_framework.permissions import IsAdminUser
 
 class ContactList(generics.ListCreateAPIView):
     serializer_class = ContactSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.AllowAny]
     queryset = Contact.objects.all()
     
     def perform_create(self, serializer):
