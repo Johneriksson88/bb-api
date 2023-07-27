@@ -18,20 +18,25 @@ import re
 if os.path.exists('env.py'):
     import env
 
+# get image hosting cloudinary URL from environment variables
 CLOUDINARY_STORAGE = {
     'CLOUDINARY_URL': os.environ.get('CLOUDINARY_URL')
 }
+
+# storage settings
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# different rest framework settings depending on the DEV environment variable (developlment/production)
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [(
         'rest_framework.authentication.SessionAuthentication'
         if 'DEV' in os.environ
         else 'dj_rest_auth.jwt_auth.JWTCookieAuthentication'
     )],
+    # set the pagination to 10 posts per page and datetime format
     'DEFAULT_PAGINATION_CLASS':
         'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10,
@@ -42,25 +47,26 @@ if 'DEV' not in os.environ:
          'rest_framework.renderers.JSONRenderer',
     ] 
 
+# jason web token settings
 REST_USE_JWT = True
 JWT_AUTH_SECURE = True
 JWT_AUTH_COOKIE = 'my-app-auth'
 JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
 JWT_AUTH_SAMESITE = 'None'
 
+# overwrite default user details serializer class
 REST_AUTH_SERIALIZERS = {
     'USER_DETAILS_SERIALIZER': 'bb_api.serializers.CurrentUserSerializer'
 }
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
+# allowed host URL
 ALLOWED_HOSTS = [
     '8000-johneriksson88-bbapi-xsopvm3idcx.ws-eu102.gitpod.io',
     os.environ.get('ALLOWED_HOST')
@@ -109,11 +115,13 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
+# set allowed origins - the CLIENT_ORIGIN is the front ends URL
 if 'CLIENT_ORIGIN' in os.environ:
     CORS_ALLOWED_ORIGINS = [
         os.environ.get('CLIENT_ORIGIN')
    ]
-
+# allowed origins for development URL
 if 'CLIENT_ORIGIN_DEV' in os.environ:
     extracted_url = re.match(
         r'^.+-', os.environ.get('CLIENT_ORIGIN_DEV', ''), re.IGNORECASE).group(0)
@@ -121,6 +129,7 @@ if 'CLIENT_ORIGIN_DEV' in os.environ:
         rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
     ]
 
+# enable sending cookies in cross-origin requests
 CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'bb_api.urls'
@@ -144,9 +153,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'bb_api.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
+# database settings
 if 'DEV' in os.environ:
     DATABASES = {
         'default': {
@@ -160,8 +167,7 @@ else:
     }
 
 
-# Password validation
-# https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
+# password validation
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -179,8 +185,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/3.2/topics/i18n/
+# internationalization
 
 LANGUAGE_CODE = 'en-us'
 

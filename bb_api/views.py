@@ -5,6 +5,7 @@ from .settings import (
     JWT_AUTH_SECURE
 )
 
+# root view
 @api_view()
 def root_route(request):
     return Response({

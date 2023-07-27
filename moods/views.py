@@ -6,7 +6,7 @@ from .models import Mood
 from .serializers import MoodSerializer
 from bb_api.permissions import IsOwnerOrReadOnly
 
-
+# mood list view
 class MoodList(APIView):
     serializer_class = MoodSerializer
     permission_classes = [
@@ -36,7 +36,7 @@ class MoodList(APIView):
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
-
+# mood detail view
 class MoodDetail(APIView):
     permission_classes = [IsOwnerOrReadOnly]
     serializer_class = MoodSerializer

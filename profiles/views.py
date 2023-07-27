@@ -5,7 +5,7 @@ from bb_api.permissions import IsOwnerOrReadOnly
 from .models import Profile
 from .serializers import ProfileSerializer
 
-
+# profile list view
 class ProfileList(generics.ListAPIView):
     """
     List all profiles.
@@ -33,7 +33,7 @@ class ProfileList(generics.ListAPIView):
         'owner__followed__created_at',
     ]
 
-
+# profile detail view
 class ProfileDetail(generics.RetrieveUpdateAPIView):
     """
     Retrieve or update a profile if you're the owner.

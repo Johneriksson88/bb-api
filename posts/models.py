@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from moods.models import Mood
 
-
+# post model
 class Post(models.Model):
     """
     Post model, related to 'owner', i.e. a User instance.

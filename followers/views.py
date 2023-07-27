@@ -3,7 +3,7 @@ from bb_api.permissions import IsOwnerOrReadOnly
 from .models import Follower
 from .serializers import FollowerSerializer
 
-
+# follower list view
 class FollowerList(generics.ListCreateAPIView):
     """
     List all followers, i.e. all instances of a user
@@ -18,7 +18,7 @@ class FollowerList(generics.ListCreateAPIView):
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
-
+# follower detail view
 class FollowerDetail(generics.RetrieveDestroyAPIView):
     """
     Retrieve a follower

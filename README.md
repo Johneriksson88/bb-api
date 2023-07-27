@@ -46,9 +46,22 @@ This project utilized an agile approach, and all the user stories can be viewed 
 For the backend part of BeatBuddies I used the [Django REST framework](https://www.django-rest-framework.org/). I first created the models, and then the serializers and views.
 The database schema were planned out in [dbdesigner.net](https://www.dbdesigner.net/). DBDesigner is an intuitive browser-based tool to create database schemas.
 
-All models and their respective fields can be seen below:
+The main models and their respective fields can be seen below:
 
-![database schema](/src/assets/readme_images/beatbuddies_db_schema.png)
+![database schema](static/beatbuddies_db_schema.png)
+
+### Contact model
+
+The contact model is for storing user feedback messages and consists of the following fields:
+
+| name       | type             |
+| ---------- | ---------------- |
+| owner      | foreignkey(User) |
+| created_at | datetime         |
+| updated_at | datetime         |
+| title      | charfield        |
+| email      | charfield        |
+| message    | textfield        |
 
 ### User model
 

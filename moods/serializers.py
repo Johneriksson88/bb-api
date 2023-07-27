@@ -2,7 +2,7 @@ from rest_framework import serializers
 from moods.models import Mood
 from posts.serializers import PostSerializer
 
-
+# mood serializer
 class MoodSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
     mood_id = serializers.ReadOnlyField(source='mood.id')

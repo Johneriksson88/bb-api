@@ -1,7 +1,9 @@
 from rest_framework import serializers
 from .models import Contact
 
+# contact serializer
 class ContactSerializer(serializers.ModelSerializer):
+    # custom serializer field setting the owner to the owners username
     owner = serializers.ReadOnlyField(source='owner.username')
 
     class Meta:

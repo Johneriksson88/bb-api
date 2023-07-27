@@ -5,7 +5,7 @@ from bb_api.permissions import IsOwnerOrReadOnly
 from .models import Post
 from .serializers import PostSerializer
 
-
+# post list view
 class PostList(generics.ListCreateAPIView):
     """
     List posts or create a post if logged in
@@ -42,7 +42,7 @@ class PostList(generics.ListCreateAPIView):
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
-
+# post detail view
 class PostDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     Retrieve a post and edit or delete it if you own it.
