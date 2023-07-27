@@ -52,7 +52,7 @@ The main models and their respective fields can be seen below:
 
 ### Contact model
 
-The contact model is for storing user feedback messages and consists of the following fields:
+The contact model is for storing user feedback messages and has no relation to the above models. It consists of the following fields:
 
 | name       | type             |
 | ---------- | ---------------- |
